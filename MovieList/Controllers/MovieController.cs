@@ -44,45 +44,33 @@ namespace MovieList.Controllers
         // GET: Movie/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(movies.FirstOrDefault(x => x.MovieId == id));
         }
 
         // POST: Movie/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, MovieModel movieModel)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            MovieModel movie = movies.FirstOrDefault(x => x.MovieId == id);
+            movie.Name = movieModel.Name;
+            movie.Description = movieModel.Description;
+            movie.Watched = movieModel.Watched;
+            return RedirectToAction("Index");
         }
 
         // GET: Movie/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(movies.FirstOrDefault(x => x.MovieId == id));
         }
 
         // POST: Movie/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, MovieModel movieModel)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            MovieModel movie = movies.FirstOrDefault(x => x.MovieId == id);
+            movies.Remove(movie);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿@model MovieList.Models.MovieModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Delete";
 }
 
-<h2>Szczegóły filmu</h2>
+<h2>Usuń film</h2>
 
+<h3>Czy na pewno chcesz usunąć ten film?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -27,8 +28,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy filmów", "Index")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edytuj", "Edit", new { id = Model.MovieId }) |
-    @Html.ActionLink("Wróć do listy filmów", "Index")
-</p>

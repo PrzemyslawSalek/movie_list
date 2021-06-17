@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.Watched)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.MovieId }) |
             @Html.ActionLink("Szczegóły", "Details", new { id=item.MovieId }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Usuń", "Delete", new { id=item.MovieId })
         </td>
     </tr>
 }
