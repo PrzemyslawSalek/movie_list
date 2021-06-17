@@ -11,9 +11,12 @@ namespace MovieList.Models
         public int MovieId { get; set; }
 
         [Display(Name = "Nazwa")]
+        [Required(ErrorMessage = "Pole Nazwa jest wymagane")]
+        [MaxLength(50)]
         public string Name { get; set; }
 
         [Display(Name = "Opis")]
+        [MaxLength(2000)]
         public string Description { get; set; }
 
         [Display(Name = "Obejrzane")]

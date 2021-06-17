@@ -4,31 +4,32 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Szczegóły filmu</h2>
+<h1 class="display-4">Szczegóły filmu</h1>
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
+    <dl>
+        <div class="form-group">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+        </div>
+        <div class="form-group">
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </div>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edytuj", "Edit", new { id = Model.MovieId }) |
-    @Html.ActionLink("Wróć do listy filmów", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.MovieId }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Wróć do listy filmów", "Index", null , new { @class = "btn btn-info" })
 </p>

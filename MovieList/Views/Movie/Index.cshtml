@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Lista filmów</h2>
+<h1 class="display-4">Lista filmów</h1>
 
 <p>
-    @Html.ActionLink("Dodaj film", "Create")
+    @Html.ActionLink("Dodaj film", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -21,19 +21,20 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Watched)
-        </td>
-        <td>
-            @Html.ActionLink("Edytuj", "Edit", new { id=item.MovieId }) |
-            @Html.ActionLink("Szczegóły", "Details", new { id=item.MovieId }) |
-            @Html.ActionLink("Usuń", "Delete", new { id=item.MovieId })
-        </td>
-    </tr>
+<tr>
+    <td style="width:45%">
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td style="width:7%; text-align:center; vertical-align:middle">
+        @Html.DisplayFor(modelItem => item.Watched)
+    </td>
+    <td style="width:10%"> </td>
+    <td>
+        @Html.ActionLink("Szczegóły", "Details", new { id = item.MovieId }, new { @class = "btn btn-info" })
+        @Html.ActionLink("Edytuj", "Edit", new { id = item.MovieId }, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Usuń", "Delete", new { id = item.MovieId }, new { @class = "btn btn-danger" })
+    </td>
+</tr>
 }
 
 </table>
