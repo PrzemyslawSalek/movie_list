@@ -11,13 +11,18 @@ namespace MovieList.Controllers
     {
         private static IList<MovieModel> movies = new List<MovieModel>()
         {
-            new MovieModel(){MovieId = 1, Name = "Pulp Fiction", Description = "Best film", Watched = false},
-            new MovieModel(){MovieId = 2, Name = "Breaking Bad", Description = "Best serial", Watched = false}
+            new MovieModel(){MovieId = 1, Name = "Pulp Fiction", Description = "Najlepszy film", Genre = "Comedy", Watched = false},
+            new MovieModel(){MovieId = 2, Name = "Breaking Bad", Description = "Najlepszy serial", Genre = "Comedy", Watched = false}
         };
         // GET: Movie
         public ActionResult Index()
         {
             return View(movies);
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
         }
 
         // GET: Movie/Details/5
@@ -54,6 +59,7 @@ namespace MovieList.Controllers
             MovieModel movie = movies.FirstOrDefault(x => x.MovieId == id);
             movie.Name = movieModel.Name;
             movie.Description = movieModel.Description;
+            movie.Genre = movieModel.Genre;
             movie.Watched = movieModel.Watched;
             return RedirectToAction("Index");
         }

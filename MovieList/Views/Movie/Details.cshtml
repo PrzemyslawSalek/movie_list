@@ -1,7 +1,7 @@
 ﻿@model MovieList.Models.MovieModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
 }
 
 <h1 class="display-4">Szczegóły filmu</h1>
@@ -27,9 +27,18 @@
                 @Html.DisplayFor(model => model.Description)
             </dd>
         </div>
+        <div class="form-group">
+            <dt>
+                @Html.DisplayNameFor(model => model.Genre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+        </div>
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.MovieId }, new { @class = "btn btn-warning" })
-    @Html.ActionLink("Wróć do listy filmów", "Index", null , new { @class = "btn btn-info" })
+    @Html.ActionLink("Wróć do listy filmów", "Index", null , new { @class = "btn btn-primary" })
 </p>
